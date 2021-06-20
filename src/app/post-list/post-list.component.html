@@ -1,0 +1,18 @@
+<div *ngFor="let todo of todos">
+    <div class="card" *ngIf="todo.title.length < 30;else long">
+        <ul *ngIf="todo.id % 2 === 0; else list" [ngStyle]="{background: 'green'}">
+            <li>{{todo.title | titlecase}}</li>
+            <li>{{todo.body}}</li>
+        </ul>
+        <ng-template #list>
+           <ul>
+               <li>{{todo.title | titlecase}}</li>
+               <li>{{todo.body}}</li>
+           </ul>
+        </ng-template>
+       </div>
+
+       <ng-template #long>
+        </ng-template>
+</div>
+
